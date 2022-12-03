@@ -1,2 +1,20 @@
+<label>Server name (NOT using 2-ways Data biding)</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<p>{{serverName}}</p>
+<hr/>
+<label>Server name (Using 2-ways Data biding)</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!--Biding property and event-->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!--<p>{{allowNewServer}}</p>--> <!--String interpolation-->
+<p [innerText]="allowNewServer"></p> <!--Property biding-->
+<p>{{serverCreationStatus}}</p>
+
+<br/>
+<label>User name</label>
+<input type="text" class="form-control" [(ngModel)]="userName">
+<p>{{userName}}</p>
+<button class="brn btn-warning" [disabled]="userName.trim() === ''" (click)="userName = ''">Reset User</button>
+
 <app-server></app-server>
 <app-server></app-server>
