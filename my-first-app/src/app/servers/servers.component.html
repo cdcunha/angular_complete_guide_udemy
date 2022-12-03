@@ -9,7 +9,12 @@
 <!--<p>{{allowNewServer}}</p>--> <!--String interpolation-->
 <p [innerText]="allowNewServer"></p> <!--Property biding-->
 <p>{{serverCreationStatus}}</p>
-
+<label>Using ngIf Directive: </label>
+<!--<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
+<ngtemplate #noServer>
+    <p>No server was created!</p>
+</ngtemplate>
+-->
 <br/>
 <label>User name</label>
 <input type="text" class="form-control" [(ngModel)]="userName">
