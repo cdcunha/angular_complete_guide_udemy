@@ -1,25 +1,39 @@
-<label>Server name (NOT using 2-ways Data biding)</label>
-<input type="text" class="form-control" (input)="onUpdateServerName($event)">
-<p>{{serverName}}</p>
+<div>
+    <label>Server name (NOT using 2-ways Data biding)</label>
+    <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+    <p>{{serverName}}</p>
+</div>
 <hr/>
-<label>Server name (Using 2-ways Data biding)</label>
-<input type="text" class="form-control" [(ngModel)]="serverName">
-<!--Biding property and event-->
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
-<!--<p>{{allowNewServer}}</p>--> <!--String interpolation-->
-<p [innerText]="allowNewServer"></p> <!--Property biding-->
-<p>{{serverCreationStatus}}</p>
-<label>Using ngIf Directive: </label>
-<!--<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
-<ngtemplate #noServer>
-    <p>No server was created!</p>
-</ngtemplate>
--->
+<div>
+    <label>Server name (Using 2-ways Data biding)</label>
+    <input type="text" class="form-control" [(ngModel)]="serverName">
+    <!--Biding property and event-->
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+</div>
+<div>
+    <!--<p>{{allowNewServer}}</p>--> <!--String interpolation-->
+    <p [innerText]="allowNewServer"></p> <!--Property biding-->
+    <p>{{serverCreationStatus}}</p>
+    <label>Using ngIf Directive: </label>
+    <!--<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
+    <ngtemplate #noServer>
+        <p>No server was created!</p>
+    </ngtemplate>
+    -->
+</div>
+<app-server *ngFor="let server of servers"></app-server>
 <br/>
-<label>User name</label>
-<input type="text" class="form-control" [(ngModel)]="userName">
-<p>{{userName}}</p>
-<button class="brn btn-warning" [disabled]="userName.trim() === ''" (click)="userName = ''">Reset User</button>
-
-<app-server></app-server>
-<app-server></app-server>
+<div>
+    <button class="btn btn-primary" (click)="displayDetails = !displayDetails; onLogDisplayDetails()">Display Details</button>
+    <p *ngIf="displayDetails">Secret Password = tuna</p>
+    <div *ngFor="let logItem of logClicks" [ngStyle]="{backgroundColor : logItem >=5 ? 'blue' : 'transparent'}" [ngClass]="{'log5th': logItem >=5}">
+        {{logItem}}
+    </div>
+</div>
+<br/>
+<div>
+    <label>User name</label>
+    <input type="text" class="form-control" [(ngModel)]="userName">
+    <p>{{userName}}</p>
+    <button class="brn btn-warning" [disabled]="userName.trim() === ''" (click)="userName = ''">Reset User</button>
+</div>
