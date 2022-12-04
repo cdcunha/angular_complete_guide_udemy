@@ -40,6 +40,6 @@ export class ServersComponent {
   }
 
   onLogDisplayDetails(){
-    this.logClicks.push(this.logClicks.length + 1);
+    this.logClicks.push(new Date);
   }
 }

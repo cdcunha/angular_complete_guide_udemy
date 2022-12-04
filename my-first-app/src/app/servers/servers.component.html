@@ -26,9 +26,10 @@
 <div>
     <button class="btn btn-primary" (click)="displayDetails = !displayDetails; onLogDisplayDetails()">Display Details</button>
     <p *ngIf="displayDetails">Secret Password = tuna</p>
-    <div *ngFor="let logItem of logClicks" [ngStyle]="{backgroundColor : logItem >=5 ? 'blue' : 'transparent'}" [ngClass]="{'log5th': logItem >=5}">
-        {{logItem}}
-    </div>
+    <div *ngFor="let logItem of logClicks; let i = index" 
+        [ngStyle]="{backgroundColor : i >=4 ? 'blue' : 'transparent'}" 
+        [ngClass]="{'log5th': i >=4}"
+    >{{(i+1) + ': ' + logItem}}</div>
 </div>
 <br/>
 <div>
