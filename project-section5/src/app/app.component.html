@@ -8,7 +8,13 @@
   <div class="row">
     <div class="col-xs-12">
       <!--Biding to custom properties. Ex.: [element]="element" OR using alias [srvElement]="element". See server-element.component.ts-->
-      <app-server-element *ngFor="let element of serverElements" [srvElement]="element"></app-server-element>
+      <app-server-element *ngFor="let element of serverElements" [srvElement]="element">
+        <!--Using ng-content to show the elements inside the component-->
+        <p>
+          <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+          <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        </p>
+      </app-server-element>
     </div>
   </div>
 </div>
