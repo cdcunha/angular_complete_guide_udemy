@@ -1,13 +1,13 @@
 <div class="container">
-  <!--Biding Custom events-->
+  <!--Biding to Custom events. Ex: (blueprintCreated)="onBlueprintAdded($event) OR using alias: (bpCreated)="onBlueprintAdded($event)". See cockpit.component.ts-->
   <app-cockpit 
-    {serverCreated}="onServerAdded($event)" 
-    {blueprintCreated}="onBlueprintAdded($event)"
+    (serverCreated)="onServerAdded($event)" 
+    (bpCreated)="onBlueprintAdded($event)"
   ></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <!--Biding to custom properties: [element]="element" OR using alias [srvElement]="element". See server-element.component-->
+      <!--Biding to custom properties. Ex.: [element]="element" OR using alias [srvElement]="element". See server-element.component.ts-->
       <app-server-element *ngFor="let element of serverElements" [srvElement]="element"></app-server-element>
     </div>
   </div>
