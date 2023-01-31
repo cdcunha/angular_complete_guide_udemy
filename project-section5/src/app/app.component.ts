@@ -25,4 +25,16 @@ export class AppComponent {
       content: bluepringData.serverContent
     });
   }
+
+  onChangeFirst(){
+    this.serverElements[0].name = 'Changed!';
+  }
+
+  onDestroyFirst(){
+    console.log('Deleting element');
+    console.log(this.serverElements);
+    this.serverElements.splice(0, 1);
+    console.log(this.serverElements);
+    console.log('Element deleted');
+  }
 }

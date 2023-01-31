@@ -7,12 +7,19 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first Element</button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy first Compoment</button>
       <!--Biding to custom properties. Ex.: [element]="element" OR using alias [srvElement]="element". See server-element.component.ts-->
-      <app-server-element *ngFor="let element of serverElements" [srvElement]="element">
+      <app-server-element 
+        *ngFor="let serverElement of serverElements" 
+        [srvElement]="serverElement"
+        [name]="serverElement.name"
+      >
         <!--Using ng-content to show the elements inside the component-->
-        <p>
-          <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-          <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        <!--Using Local Reference to be used in the Child component-->
+        <p #contentParagraph>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
       </app-server-element>
     </div>
