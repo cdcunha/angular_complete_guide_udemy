@@ -1,0 +1,6 @@
+<h2>The Game</h2>
+<app-even [gameNumber]="actualNumber"></app-even>
+<app-odd [gameNumber]="actualNumber"></app-odd>
+<button class="btn btn-success" (click)="onStartGame()" [disabled]="isGameStarted" style="margin-right: 10px;" #buttonStart>Start</button>
+<button class="btn btn-primary" (click)="onContinueGame()" [disabled]="!isGameStoped" style="margin-right: 10px;" >Continue</button>
+<button class="btn btn-danger" (click)="onStopGame()" [disabled]="!isGameStarted">Stop</button>
