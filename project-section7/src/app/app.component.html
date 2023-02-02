@@ -20,7 +20,7 @@
         </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive using only ElementRef!</p> <!--I can use the directive without brackets because it's set up on the class-->
-      <p appBetterHighlight>Style me with a better directive using Renderer2 and ElementRef!</p>
+      <p appBetterHighlight [defaultColor]="'#ffef96'" [highlightColor]="'red'">Style me with a better directive using Renderer2 and ElementRef!</p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
