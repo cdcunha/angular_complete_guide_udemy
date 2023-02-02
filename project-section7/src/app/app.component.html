@@ -18,6 +18,14 @@
             [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
           >{{ even }}</li>
         </div>
+        <!--Behind the scenes of *ngIf-->
+        <ng-template [ngIf]="!onlyOdd">
+          <li class="list-group-item" 
+            *ngFor="let even of evenNumbers" 
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ even }}</li>
+        </ng-template>
       </ul>
       <p appBasicHighlight>Style me with basic directive using only ElementRef!</p> <!--I can use the directive without brackets because it's set up on the class-->
       <p appBetterHighlight [defaultColor]="'#ffef96'" [highlightColor]="'red'">Style me with a better directive using Renderer2 and ElementRef!</p>
