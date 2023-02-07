@@ -14,6 +14,12 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
+    //To make sure to get the current list case the list change
+    this.shoppingListService.ingredientChanged.subscribe(
+      (ingredients: Ingredient[]) => {
+        this.ingredients = ingredients;
+      }
+    );
   }
 
   //Use the Service instead the method onIngedientAdded 
