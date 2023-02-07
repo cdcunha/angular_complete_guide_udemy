@@ -1,8 +1,10 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
 
-//instead using @injectable, the service is in providers on app.module.ts 
+//instead using providedIn: 'root', the service is in providers on app.module.ts 
+@Injectable()
 export class RecipeService {
   recipeSelected = new EventEmitter();
 
@@ -25,10 +27,14 @@ export class RecipeService {
       ]) 
   ]
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   getRecipes() {
     //Use slice to pass a copy of array instead of the reference. So, if the array is modified outside this class will not affect the array here
     return this.recipes.slice();
+  }
+
+  onAddIngredientsToShoppingList(ingredients: Ingredient[]){
+    this.shoppingListService.addIngredients(ingredients)
   }
 }

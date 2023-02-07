@@ -22,4 +22,14 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
     this.ingredientChanged.emit(this.ingredients.slice());
   }
+
+  addIngredients(ingredients: Ingredient[]){
+    //This is not a good approach because starts a lot of events
+    // for (let ingredient of ingredients){
+    //   this.addIngredient(ingredient);
+    // }
+
+    this.ingredients.push(...ingredients); //Use ... to add the array
+    this.ingredientChanged.emit(this.ingredients.slice());
+  }
 }
