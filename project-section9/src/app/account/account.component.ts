@@ -22,5 +22,6 @@ export class AccountComponent {
     */
     //this.statusChanged.emit({id: this.id, newStatus: status});
     this.accountsService.updateAccount(this.id, status);
+    this.accountsService.statusUpdated.emit(status);
   }
 }
