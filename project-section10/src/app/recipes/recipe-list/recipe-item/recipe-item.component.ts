@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
+import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -8,9 +9,14 @@ import { Recipe } from '../../recipe.model';
 })
 export class RecipeItemComponent {
   @Input() recipe: Recipe;
-  @Output() recipeSelected = new EventEmitter<void>();
+  //Use the Service cross-component communication instead of a event
+  //@Output() recipeSelected = new EventEmitter<void>();
+
+  constructor (private recipeService: RecipeService) {}
 
   onSelected(){
-    this.recipeSelected.emit();
+    //Use the Service cross-component communication instead of a event
+    //this.recipeSelected.emit();
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
 }
