@@ -9,11 +9,13 @@ export class CounterService {
 
   constructor() { }
 
-  countActiveToInactive() {
+  countActiveToInactive(): number {
     this.activeToInative++;
+    return this.activeToInative;
   }
 
-  countInactiveToActive() {
+  countInactiveToActive(): number {
     this.inactiveToActive++;
+    return this.inactiveToActive
   }
 }
