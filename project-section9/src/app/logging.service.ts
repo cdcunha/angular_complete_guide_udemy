@@ -7,11 +7,15 @@ import { Injectable } from '@angular/core';
    * 
    * Note: the service can be added in providers, on app.modules, instead to use Injectable decorator
    */
-@Injectable({
+/*@Injectable({
   providedIn: 'root'
-})
+})*/
 export class LoggingService {
   constructor() { }
+
+  logAccountAdded(name: string, status: string){
+    console.log('Server "' + name + '" added, with the status: ' + status);
+  }
 
   logStatusChange(status: string){
     console.log('A server status changed, new status: ' + status);
