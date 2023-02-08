@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServersService {
-  private servers = [
+ private servers = [
     {
       id: 1,
       name: 'Productionserver',
@@ -23,7 +23,7 @@ export class ServersService {
   ];
 
   constructor() { }
-
+  
   getServers() {
     return this.servers;
   }
