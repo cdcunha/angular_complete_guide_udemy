@@ -16,8 +16,8 @@ export class EditServerComponent implements OnInit {
 
   ngOnInit() {
     //Snapshot will show only in the beggining. If the values changes it will not show in snapshot
-    console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
+    //console.log(this.route.snapshot.queryParams);
+    //console.log(this.route.snapshot.fragment);
     this.route.queryParams.subscribe();
     this.route.fragment.subscribe();
     this.server = this.serversService.getServer(1);

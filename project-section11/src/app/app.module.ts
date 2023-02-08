@@ -16,6 +16,7 @@ const appRoutes: Route[] = [
   { path: 'users', component: UsersComponent },
   { path: 'users/:id/:name', component: UserComponent }, //dynamic part of path
   { path: 'servers', component: ServersComponent },
+  { path: 'servers/:id', component: ServerComponent },
   { path: 'servers/:id/edit', component: EditServerComponent }
 ];
 
