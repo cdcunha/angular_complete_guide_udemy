@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-
+  user: {id: number, name: string};
 }
