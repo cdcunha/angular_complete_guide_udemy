@@ -15,10 +15,15 @@ const appRoutes: Route[] = [
   { path: 'users', component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent }, //dynamic part of path
   ] },
-  { path: 'servers', canActivate: [AuthGuardService], component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent },
-    { path: ':id/edit', component: EditServerComponent },
-  ] },
+  { path: 'servers', 
+    //canActivate: [AuthGuardService],
+    canActivateChild: [AuthGuardService], 
+    component: ServersComponent, 
+    children: [
+      { path: ':id', component: ServerComponent },
+      { path: ':id/edit', component: EditServerComponent },
+    ] 
+},
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: 'not-found' } //Catch any other path. NOTE: Needs to be the last path on the routes
 ];
