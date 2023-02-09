@@ -10,6 +10,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Route[] = [
   { path: '', component: HomeComponent },
@@ -18,8 +19,10 @@ const appRoutes: Route[] = [
   ] },
   { path: 'servers', component: ServersComponent, children: [
     { path: ':id', component: ServerComponent },
-    { path: ':id/edit', component: EditServerComponent }
+    { path: ':id/edit', component: EditServerComponent },
   ] },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: 'not-found' } //Catch any other path. NOTE: Needs to be the last path on the routes
 ];
 
 @NgModule({
@@ -30,7 +33,8 @@ const appRoutes: Route[] = [
     EditServerComponent,
     ServerComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

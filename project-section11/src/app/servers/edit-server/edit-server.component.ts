@@ -22,10 +22,11 @@ export class EditServerComponent implements OnInit {
     this.route.queryParams.subscribe(
       (queryParams: Params) => {
         this.allowEdit = queryParams['allowEdit'] === '1';
+        this.server = this.serversService.getServer(+queryParams['id']);  //Use + to cast string to number
       }
     );
     this.route.fragment.subscribe();
-    this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(+this.route.snapshot.params['id']);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
