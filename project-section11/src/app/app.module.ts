@@ -11,19 +11,7 @@ import { ServerComponent } from './servers/server/server.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const appRoutes: Route[] = [
-  { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent, children: [
-    { path: ':id/:name', component: UserComponent }, //dynamic part of path
-  ] },
-  { path: 'servers', component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent },
-    { path: ':id/edit', component: EditServerComponent },
-  ] },
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: 'not-found' } //Catch any other path. NOTE: Needs to be the last path on the routes
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +27,7 @@ const appRoutes: Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
