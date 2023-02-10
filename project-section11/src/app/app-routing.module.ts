@@ -36,7 +36,8 @@ const appRoutes: Route[] = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes),
+    //RouterModule.forRoot(appRoutes, { useHash: true }), //useHash add # after the server address and tells the webserver to taker care only with the domain
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule]
 })
