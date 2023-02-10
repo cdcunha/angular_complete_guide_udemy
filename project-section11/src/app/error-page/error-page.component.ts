@@ -16,7 +16,7 @@ export class ErrorPageComponent implements OnInit {
     //Case the message changes, the subricribe will catch it
     this.route.data.subscribe(
       (data: Data) => {
-        this.errorMessage = data['message'];
+        this.errorMessage = data['message']; //The name defined on app-routing
       }
     );
   }
