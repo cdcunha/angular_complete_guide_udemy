@@ -10,9 +10,10 @@
             1) Shows app-recipe-detail only if selectedRecipe is not undefined. If undefined show the ng-template
             2) Pass data with Property Biding: [recipe] is a property on recipe-detail-compoment.ts
         -->
-        <app-recipe-detail *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-detail>
+        <!-- <app-recipe-detail *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-detail>
         <ng-template #infoText>
             <p>Please select a Recipe!</p>
-        </ng-template>
+        </ng-template> -->
+        <router-outlet></router-outlet>
     </div>
 </div>
