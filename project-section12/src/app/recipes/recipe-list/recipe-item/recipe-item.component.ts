@@ -12,6 +12,7 @@ export class RecipeItemComponent {
   @Input() recipe: Recipe;
   //Use the Service cross-component communication instead of a event
   //@Output() recipeSelected = new EventEmitter<void>();
+  @Input() index: number;
 
   //As we'll not use the onSelected method, we don't need the RecipeService
   // constructor (private recipeService: RecipeService) {}
