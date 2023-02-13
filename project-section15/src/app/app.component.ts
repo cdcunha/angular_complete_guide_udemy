@@ -21,9 +21,9 @@ export class AppComponent {
     secretQuestion: '',
     answer: ''
   }
-
+  
   suggestUserName() {
-    const suggestedName = 'Superuser';
+    const suggestedName = 'Superuse';
     //This is not the best approach
     // this.signupForm.setValue({
     //     userData: {
@@ -55,5 +55,17 @@ export class AppComponent {
     this.user.secretQuestion = this.signupForm.value.secret;
     this.user.answer = this.signupForm.value.questionAnswer;
     this.submited = true;
+
+    //Reset whole form
+    //this.signupForm.reset();
+    this.signupForm.reset({
+          userData: {
+            username: 'Superuse',
+            email: '',
+            gender: 'male'
+          },
+          secret: 'pet',
+          questionAnswer: ''
+      })
   }
 }
