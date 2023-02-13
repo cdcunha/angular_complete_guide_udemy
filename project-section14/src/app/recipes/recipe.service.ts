@@ -6,8 +6,9 @@ import { Recipe } from './recipe.model';
 //instead using providedIn: 'root', the service is in providers on app.module.ts 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter();
-
+  //The Eventemitter is not necessary anymore
+  //recipeSelected = new EventEmitter();
+  
   private recipes: Recipe[] = [
     new Recipe(
       'Tasty Schnitzel',
