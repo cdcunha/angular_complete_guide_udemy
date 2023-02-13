@@ -15,6 +15,9 @@
             <input type="email" id="email" class="form-control" ngModel name="email" email required #email="ngModel">
             <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid e-mail!</span>
           </div>
+          <div class="radio" *ngFor="let gender of genders">
+            <label for="gender"><input type="radio" name="gender" ngModel [value]="gender" required>{{gender}}</label>
+          </div>
           <span class="help-block" *ngIf="!userData.valid && userData.touched">User Data is invalid!</span>
         </div>
         <div class="form-group">
