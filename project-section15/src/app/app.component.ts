@@ -13,6 +13,14 @@ export class AppComponent {
   defaultQuestion = 'teacher';
   answer = '';
   genders = ['male', 'female'];
+  submited = false;
+  user = {
+    username: '',
+    email: '',
+    gender: '',
+    secretQuestion: '',
+    answer: ''
+  }
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -40,6 +48,12 @@ export class AppComponent {
   //We'll use @ViewChild instead a parameter
   //onSubmit(form: NgForm){  
   onSubmit(){
-    console.log(this.signupForm);
+    //console.log(this.signupForm);
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.gender = this.signupForm.value.userData.gender;
+    this.user.secretQuestion = this.signupForm.value.secret;
+    this.user.answer = this.signupForm.value.questionAnswer;
+    this.submited = true;
   }
 }

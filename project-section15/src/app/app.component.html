@@ -35,4 +35,14 @@
       </form>
     </div>
   </div>
+  <div class="row" *ngIf="submited">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Username: {{user.username}}</p>
+      <p>e-mail: {{user.email}}</p>
+      <p>Gender: {{user.gender}}</p>
+      <p>Secret Question: Your first {{user.secretQuestion}}</p>
+      <p>Answer: {{user.answer}}</p>
+    </div>
+  </div>
 </div>
