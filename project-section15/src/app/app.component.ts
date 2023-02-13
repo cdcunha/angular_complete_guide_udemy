@@ -11,6 +11,7 @@ export class AppComponent {
   //ViewChild is useful if we need to access the form beform submit it
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion = 'teacher';
+  answer = '';
 
   suggestUserName() {
     const suggestedName = 'Superuser';
