@@ -16,6 +16,23 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    //This is not the best approach
+    // this.signupForm.setValue({
+    //     userData: {
+    //       username: suggestedName,
+    //       email: '',
+    //       gender: 'male'
+    //     },
+    //     secret: 'pet',
+    //     questionAnswer: ''
+    // })
+
+    //This is the best approach to fill the form. PatchValue override only part of the form
+    this.signupForm.form.patchValue({ 
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   //We don't need HTMLFormElement because we're using ngForm
