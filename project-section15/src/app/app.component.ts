@@ -9,7 +9,8 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   title = 'project-section15';
   //ViewChild is useful if we need to access the form beform submit it
-  @ViewChild('f') signupForm: NgForm; 
+  @ViewChild('f') signupForm: NgForm;
+  defaultQuestion = 'teacher';
 
   suggestUserName() {
     const suggestedName = 'Superuser';
