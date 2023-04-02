@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'project-section15';
+  title = 'project-section15 - Handle forms - Template-driven';
   //ViewChild is useful if we need to access the form beform submit it
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion = 'teacher';
