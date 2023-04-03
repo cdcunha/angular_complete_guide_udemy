@@ -21,8 +21,19 @@
             <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
           </label>
         </div>
+        <div formArrayName="hobbies">
+          <h4>Your Hobbies</h4>
+          <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby</button>
+          <!-- This structure doesn't work in versions after Angular 8 
+            <div class="form-group" *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index"> -->
+          <!-- For Angular 8+, I created a getter called control -->
+          <div class="form-group" *ngFor="let hobbyControl of controls; let i = index">
+            <!-- I have to use [formControlName], because I'm not using a string literal, but a variable -->
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+        </div>
         <span class="help-block" *ngIf="signupForm.invalid && signupForm.touched">Please, enter a valid data!</span>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="signupForm.invalid">Submit</button>
       </form>
     </div>
   </div>
