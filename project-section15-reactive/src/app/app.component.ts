@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
 
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
-      return {'nameIForbiden': true};
+      return {'nameIsForbiden': true};
     }
     return null;
   }
