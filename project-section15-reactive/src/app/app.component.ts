@@ -40,11 +40,20 @@ export class AppComponent implements OnInit {
       },
       'gender': 'male',
       'hobbies': []
-    })
+    });
+
+    this.signupForm.patchValue({
+      'userData': {
+        'username': 'Max',
+      }
+    });
   }
 
   onSubmit(){
     console.log(this.signupForm);
+    
+    //To reset an object to specific values
+    this.signupForm.reset();
   }
 
   get controls(){
