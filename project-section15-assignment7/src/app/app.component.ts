@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'project-section15-assignment7';
   projectForm: FormGroup;
   statuses = ['Stable', 'Critical', 'Finished'];
+  defaultStatus = 'critical';
 
   forbiddenProjectNames = ['Test'];
 
@@ -19,8 +20,8 @@ export class AppComponent implements OnInit {
       'projectData': new FormGroup({
         // 'projectName': new FormControl(null, [Validators.required, this.forbiddenName.bind(this)]),
         'projectName': new FormControl(null, [Validators.required], this.forbiddenNameAsync),
-        'projectMail': new FormControl(null, [Validators.required]),
-        'projectStatus': new FormControl(null)
+        'projectEmail': new FormControl(null, [Validators.required, Validators.email]),
+        'projectStatus': new FormControl('critical')
       })
     });
     console.log('statuses:', this.statuses);
@@ -49,5 +50,9 @@ export class AppComponent implements OnInit {
       }, 1500)
     })
     return promise;
+  }
+
+  isSelected(value) {
+    return value === this.defaultStatus;
   }
 }
