@@ -22,7 +22,16 @@ export class AppComponent implements OnInit {
       }),
       'gender': new FormControl('male'), //Default value = male
       'hobbies': new FormArray([])
-    })
+    });
+    //valueChanges shows the value of the form
+    // this.signupForm.valueChanges.subscribe(
+    //   (value) => console.log(value)
+    // );
+
+    //statusChanges shows the form status (INVALID, PENDING, VALID)
+    this.signupForm.statusChanges.subscribe(
+      (status) => console.log(status)
+    );
   }
 
   onSubmit(){
