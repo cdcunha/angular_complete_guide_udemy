@@ -2,6 +2,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
+  ViewChild,
   // ElementRef,
   // ViewChild
 } from '@angular/core';
@@ -20,9 +21,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   //We don't need this elements anymore, because we're passing the form in the parameter of onAddItem
   // @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef;
   // @ViewChild('amountInput', { static: false }) amountInputRef: ElementRef;
+
+  @ViewChild('f', {static: false}) slForm: NgForm;
   subscription: Subscription;
   editMode = false;
   editItemIndex: number;
+  editedItem: Ingredient;
 
   constructor(private slService: ShoppingListService) { }
 
@@ -30,6 +34,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.subscription = this.slService.startedEditing.subscribe((index: number) => {
       this.editItemIndex = index;
       this.editMode = true;
+      this.editedItem = this.slService.getIngredient(index);
+      this.slForm.setValue({
+        name: this.editedItem.name,
+        amount: this.editedItem.amount
+      })
     });
   }
 
